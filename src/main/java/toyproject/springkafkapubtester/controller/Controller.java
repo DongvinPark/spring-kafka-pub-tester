@@ -13,7 +13,7 @@ public class Controller {
   private final Service service;
 
   @PostMapping("/pub/{studentId}")
-  public Void pub(@PathVariable String studentId) {
+  public void pub(@PathVariable String studentId) {
     service.sendMessage(studentId);
   }
 

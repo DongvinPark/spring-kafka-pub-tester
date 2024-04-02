@@ -13,12 +13,14 @@ public class Service {
   public void sendMessage(String studentId){
     String topic = "subject0";
     
-    // 0 ~ 9 중에서 1개 랜덤 선택
+    // subject00 ~ subject09 중에서 1개 랜덤 선택
     int subjectNo = ThreadLocalRandom.current().nextInt(0, 10);
 
+    // topic 이름 & 메시지 형식 결정.
     topic += subjectNo;
+    String kafkaMessage = studentId + ":" + subjectNo;
 
-    kafkaTemplate.send(topic, studentId);
+    kafkaTemplate.send(topic, kafkaMessage);
   }
 
 }
